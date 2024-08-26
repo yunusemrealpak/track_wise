@@ -5,6 +5,6 @@ import 'package:expenses/src/domain/entities/expense.dart';
 import 'auto_mapper.auto_mappr.dart';
 
 @AutoMappr([
-  MapType<Expense, ExpenseModel>(),
+  MapType<Expense, ExpenseModel>(reverse: true),
 ])
 class AutoMapper extends $AutoMapper {}
