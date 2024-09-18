@@ -1,5 +1,5 @@
 enum ReturnTypes {
-  data,
+  single,
   list,
   noData;
 }
