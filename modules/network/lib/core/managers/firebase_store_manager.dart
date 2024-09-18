@@ -3,9 +3,9 @@ import 'package:network/core/enums/http_types.dart';
 import 'package:network/core/enums/return_types.dart';
 import 'package:network/core/models/network_entity.dart';
 
-import '../generics/api_call.dart';
+import '../generics/network_manager.dart';
 
-class FirebaseStoreManager implements ApiCall {
+class FirebaseStoreManager implements NetworkManager {
   static final FirebaseStoreManager _instance =
       FirebaseStoreManager._internal();
   static FirebaseStoreManager get instance => _instance;
@@ -39,7 +39,7 @@ class FirebaseStoreManager implements ApiCall {
     switch (type) {
       case HttpTypes.GET:
         switch (returnType) {
-          case ReturnTypes.data:
+          case ReturnTypes.single:
             if (queryParameters == null || queryParameters.containsKey('id')) {
               throw Exception('Query parameter id is required for GET request');
             }

@@ -1,18 +1,14 @@
-import 'package:network/core/models/network_entity.dart';
+import 'package:network/network.dart';
 
-class ExpenseModel extends NetworkEntity<ExpenseModel> {
-  String? id;
-  String? title;
-  double? amount;
-  DateTime? date;
-  String? categoryId;
+import '../../domain/entities/expense.dart';
 
+class ExpenseModel extends Expense implements NetworkEntity<ExpenseModel> {
   ExpenseModel({
-    this.id,
-    this.title,
-    this.amount,
-    this.date,
-    this.categoryId,
+    super.id,
+    super.title,
+    super.amount,
+    super.date,
+    super.categoryId,
   });
 
   factory ExpenseModel.fromMap(Map<String, dynamic> map) {
