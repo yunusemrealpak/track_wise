@@ -1,6 +1,14 @@
 import 'package:flutter/material.dart';
 
-void main() {
+import 'core/injection/injection_container.dart';
+import 'src/core/cache/hive/hive_init.dart';
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  InjectionContainer.configureDependencies();
+  await HiveInit.init();
+
   runApp(const MainApp());
 }
 

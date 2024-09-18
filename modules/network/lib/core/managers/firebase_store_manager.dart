@@ -59,6 +59,9 @@ class FirebaseStoreManager implements NetworkManager {
           throw Exception('Body is required for POST request');
         }
 
+        final String id = collection.doc().id;
+        body['id'] = id;
+
         final res = await collection.add(parserModel.fromJson(body));
         final snapshot = await res.get();
         return snapshot.data();
