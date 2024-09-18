@@ -1,3 +1,4 @@
+import 'package:injectable/injectable.dart';
 import 'package:network/network.dart';
 
 import '../../core/network_paths.dart';
@@ -8,6 +9,7 @@ abstract interface class ExpenseRemoteDataSource {
   Future<ExpenseModel> createExpense(ExpenseModel expense);
 }
 
+@Injectable(as: ExpenseRemoteDataSource)
 final class ExpenseRemoteDataSourceImpl implements ExpenseRemoteDataSource {
   final NetworkManager _networkManager;
   ExpenseRemoteDataSourceImpl(this._networkManager);

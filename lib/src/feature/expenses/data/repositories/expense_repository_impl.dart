@@ -1,10 +1,12 @@
 import 'package:dartz/dartz.dart';
+import 'package:injectable/injectable.dart';
 import 'package:shared/shared.dart';
 
 import '../../domain/repositories/expense_repository.dart';
 import '../models/expense_model.dart';
 import '../sources/expense_remote_data_source.dart';
 
+@Injectable(as: ExpenseRepository)
 final class ExpenseRepositoryImpl implements ExpenseRepository {
   final ExpenseRemoteDataSource _remoteDataSource;
   ExpenseRepositoryImpl(this._remoteDataSource);
