@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:track_wise/core/injection/injection_container.dart';
 import 'package:track_wise/src/core/cache/shared_preferences/shared_preferences_manager.dart';
+import 'package:track_wise/src/core/injection/injection_container.dart';
 
 import 'splash_event.dart';
 import 'splash_state.dart';

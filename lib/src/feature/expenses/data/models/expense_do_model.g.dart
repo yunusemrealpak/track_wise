@@ -1,22 +1,22 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'expense_do.dart';
+part of 'expense_do_model.dart';
 
 // **************************************************************************
 // TypeAdapterGenerator
 // **************************************************************************
 
-class ExpenseDoAdapter extends TypeAdapter<ExpenseDo> {
+class ExpenseDoModelAdapter extends TypeAdapter<ExpenseDoModel> {
   @override
   final int typeId = 0;
 
   @override
-  ExpenseDo read(BinaryReader reader) {
+  ExpenseDoModel read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return ExpenseDo(
+    return ExpenseDoModel(
       amount: fields[3] as double?,
       categoryId: fields[1] as String?,
       date: fields[2] as DateTime?,
@@ -26,7 +26,7 @@ class ExpenseDoAdapter extends TypeAdapter<ExpenseDo> {
   }
 
   @override
-  void write(BinaryWriter writer, ExpenseDo obj) {
+  void write(BinaryWriter writer, ExpenseDoModel obj) {
     writer
       ..writeByte(5)
       ..writeByte(0)
@@ -47,7 +47,7 @@ class ExpenseDoAdapter extends TypeAdapter<ExpenseDo> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is ExpenseDoAdapter &&
+      other is ExpenseDoModelAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }

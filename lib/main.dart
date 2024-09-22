@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'core/injection/injection_container.dart';
 import 'src/core/cache/hive/hive_init.dart';
+import 'src/core/injection/injection_container.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

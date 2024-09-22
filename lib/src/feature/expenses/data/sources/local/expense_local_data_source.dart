@@ -1,35 +1,35 @@
 import 'package:injectable/injectable.dart';
-import 'package:track_wise/src/feature/expenses/data/models/expense_do.dart';
+import 'package:track_wise/src/feature/expenses/data/models/expense_do_model.dart';
 
 import '../../../../../core/cache/cache_manager.dart';
 import '../../../../../core/cache/hive/hive_cache_manager.dart';
 
 abstract interface class ExpenseLocalDataSource {
-  Future<List<ExpenseDo>> getExpenses();
-  Future<void> saveExpenses(List<ExpenseDo> expenses);
-  Future<void> addExpense(ExpenseDo expense);
+  Future<List<ExpenseDoModel>> getExpenses();
+  Future<void> saveExpenses(List<ExpenseDoModel> expenses);
+  Future<void> addExpense(ExpenseDoModel expense);
 }
 
 @LazySingleton(as: ExpenseLocalDataSource)
 class ExpenseLocalDataSourceImpl implements ExpenseLocalDataSource {
-  final CacheManager<ExpenseDo> _cacheManager;
+  final CacheManager<ExpenseDoModel> _cacheManager;
 
   ExpenseLocalDataSourceImpl()
-      : _cacheManager = HiveCacheManager<ExpenseDo>("expenseBox");
+      : _cacheManager = HiveCacheManager<ExpenseDoModel>("expenseBox");
 
   @override
-  Future<List<ExpenseDo>> getExpenses() async {
+  Future<List<ExpenseDoModel>> getExpenses() async {
     return _cacheManager.getItems();
   }
 
   @override
-  Future<void> saveExpenses(List<ExpenseDo> expenses) async {
+  Future<void> saveExpenses(List<ExpenseDoModel> expenses) async {
     await _cacheManager.clear();
     await _cacheManager.addItems(expenses);
   }
 
   @override
-  Future<void> addExpense(ExpenseDo expense) async {
+  Future<void> addExpense(ExpenseDoModel expense) async {
     await _cacheManager.addItem(expense);
   }
 }

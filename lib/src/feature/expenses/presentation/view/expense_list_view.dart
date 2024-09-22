@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:track_wise/core/injection/injection_container.dart';
+import 'package:track_wise/src/core/injection/injection_container.dart';
 
-import '../../data/repositories/expense_repository_impl.dart';
 import '../bloc/expense_bloc.dart';
 import '../bloc/expense_event.dart';
 import '../bloc/expense_state.dart';
@@ -13,8 +12,7 @@ class ExpenseListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) =>
-          ExpenseBloc(di<ExpenseRepositoryImpl>())..add(LoadExpenses()),
+      create: (context) => di<ExpenseBloc>()..add(LoadExpenses()),
       child: Scaffold(
         appBar: AppBar(
           title: const Text('Expenses'),

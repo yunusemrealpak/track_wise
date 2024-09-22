@@ -1,13 +1,15 @@
 import 'package:dartz/dartz.dart';
+import 'package:injectable/injectable.dart';
 import 'package:shared/shared.dart';
 
 import '../entities/expense.dart';
 import '../repositories/expense_repository.dart';
 
-class GetExpenses implements UseCaseWithoutParams<List<Expense>> {
+@injectable
+class GetExpensesUseCase implements UseCaseWithoutParams<List<Expense>> {
   final ExpenseRepository _repository;
 
-  GetExpenses(this._repository);
+  GetExpensesUseCase(this._repository);
 
   @override
   EitherFuture<List<Expense>> call() async {
